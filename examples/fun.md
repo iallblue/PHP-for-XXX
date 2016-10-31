@@ -108,6 +108,26 @@ proEndTime();
 ```
 
 arr1[0][0] arr1[0][1] arr1[0][2] arr1[0][3]...
-                                           ===>result[0][0]  arr2[0][0] arr2[1][0] arr2[2][0] arr2[3][0]...
+                                           ===>result[0][0]  
+arr2[0][0] arr2[1][0] arr2[2][0] arr2[3][0]...
+
 
 ```
+
+* 文件加锁(保证多个进程可以同时写入)
+
+```
+	$fp = fopen("note.txt","w+");
+	if (flock($fp,LOCK_EX)) {
+		//获得写锁
+		fwrite($fp,"you can write something");
+		//解锁	
+		flock($fp,LOCK_UN);
+	} else {
+		echo "the file is locked now";
+	}
+	fclose($fp);
+
+```
+
+> 语言永远都是一个工具,优劣难分,各有千秋,重要的是用它的人。
