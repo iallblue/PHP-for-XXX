@@ -101,6 +101,11 @@ echo "结果数组输出:<br>";
 out($result);
 proEndTime();
 
-	// end of script
+// end of script
 
 ```
+
+> 
+> arr1[0][0] arr1[0][1] arr1[0][2] arr1[0][3]...
+>                                            ===>result[0][0] 
+> arr2[0][0] arr2[1][0] arr2[2][0] arr2[3][0]...
