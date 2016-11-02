@@ -154,4 +154,34 @@ echo $j;
 //输出12(共执行了两次自增-global)
 ```
 
+* 目录树
+
+```
+/**
+ * 递归遍历 目录树
+ * @param  $path 目录路径
+ * @param  $str  控制间隔显示(默认'---'为一层)
+ */
+function foreachDir($path,$str = "|--- ") {
+	$path = str_replace("\\","/",$path);
+	if (is_dir($path)) {
+		$dir = scandir($path);
+		foreach ($dir as $value) {
+			if ($value != "." && $value != "..") {
+				//echo $str . "+" . $value . "<br>";
+				echo $str . $value . "<br>";
+				if (is_dir($path . "/" . $value)) {
+					//foreachDir($path . "/" . $value,$str. "&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp");
+					foreachDir($path . "/" . $value,$str. " --- ");
+				} 
+			}
+		}
+	}
+}
+foreachDir($path);
+
+//end of srcipt
+
+```
+
 > 语言永远都是一个工具,优劣难分,各有千秋,重要的是用它的人。
