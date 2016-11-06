@@ -18,7 +18,7 @@ curl_close($ch);
 
 * 需要cookie的支持
 
-> 模拟登录需要cookie参数,可通过 `CURLOPT_COOKIE`:直接以字符串的形式使用cookie; `CURLOPT_COOKIEFILE`:以文件方式提交cookie;`CURLOPT_COOKIEJAR`:保存提交后反馈的cookie数据
+> 模拟登录需要cookie参数,可通过 `CURLOPT_COOKIE`:直接以字符串的形式使用cookie; `CURLOPT_COOKIEFILE`:以文件方式提交cookie;`CURLOPT_COOKIEJAR`:保存提交后反馈的cookie数据(cookie是用户合法提交网络请求的标识,所以模拟自动登陆需要cookie)
 
 ```
 header("content-Type: text/html; charset=UTF-8");
