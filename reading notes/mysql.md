@@ -12,4 +12,26 @@
 		* quit
 		* 重新进入mysql命令行查看 max_allowed_packet
 * 保证 插入一万条以上
+* 发送post-json字符串时，有时会遇到json将汉字转码 "汉字" => "\uva3241"，之类的数据
 
+	* php >= 5.4 可用 `json_encode($str, JSON_UNESCAPED_UNICODE)`  避免
+	* php < 5.4 
+		* ```json_encode($str, JSON_UNESCAPED_UNICODE)```
+		* ```
+			function encode_json($str) {  
+   				 return urldecode(json_encode(url_encode($str)));      
+			}  
+		  
+			function url_encode($str) {  
+			    if(is_array($str)) {  
+			        foreach($str as $key=>$value) {  
+			            $str[urlencode($key)] = url_encode($value);  
+			        }  
+			    } else {  
+			        $str = urlencode($str);  
+		    }  
+		      
+		    return $str;  
+			}  
+		 ```  
+	
