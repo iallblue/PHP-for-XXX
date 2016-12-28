@@ -35,3 +35,12 @@
 			}  
 		 ```  
 	
+
+* 结合http的传输提高效率
+	* 利用http的gizp压缩文本将获得的数据进行gzip压缩,高效传输
+		* php开启(对单个json来处理)
+			```
+				ob_start("ob_gzhandler");
+
+			```
+		* 可将几兆的json串控制在1M左右
