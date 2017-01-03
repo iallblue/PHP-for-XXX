@@ -15,6 +15,8 @@
 	* 扩展
 	* 安全
 
+* GNU (GNU is not unix)
+	* 自由软件
 
 
 
